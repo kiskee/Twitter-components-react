@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './TwitterFollowCard.css'
 
 export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
@@ -26,7 +27,7 @@ export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
           <strong>{children}</strong>
           <span className='tw-followCard-infoUserName'>@{userName}</span>
         </div>
-      </header> 
+      </header>
 
       <aside>
         <button className={buttonClassName} onClick={handleClick}>

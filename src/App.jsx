@@ -1,43 +1,19 @@
-import { useState } from 'react'
-
-/*  
+/*
 Recursos
 https://unavatar.io
 https://heroicons.com
 https://github.com/midudev/aprendiendo-react
 */
 
-import './App.css'
-import { TwitterFollowCard } from './TwitterFollowCard.jsx'
-
-const users = [
-  {
-    userName: 'midudev',
-    name: 'Miguel Ángel Durán',
-    isFollowing: true
-  },
-  {
-    userName: 'kiskee',
-    name: 'Daniel M.',
-    isFollowing: false
-  },
-  {
-    userName: 'PacoHdezs',
-    name: 'Paco Hdez',
-    isFollowing: true
-  },
-  {
-    userName: 'TMChein',
-    name: 'Tomas',
-    isFollowing: false
-  }
-]
+import { AutoComplete } from './components/AutoComplete/AutoComplete.jsx'
+import { TwitterFollowCard } from './components/FollowCard/TwitterFollowCard.jsx'
+import { users } from './constants'
 
 export function App () {
   return (
-    <section className='App'>
-      {
-        users.map(({ userName, name, isFollowing }) => (
+    <>
+      <section className='App'>
+        {users.map(({ userName, name, isFollowing }) => (
           <TwitterFollowCard
             key={userName}
             userName={userName}
@@ -45,8 +21,9 @@ export function App () {
           >
             {name}
           </TwitterFollowCard>
-        ))
-      }
-    </section>
+        ))}
+      </section>
+      <AutoComplete />
+    </>
   )
 }
